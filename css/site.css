@@ -5,6 +5,11 @@
     --white-color: #e7e7e7;
 }
 
+.logoFont {
+    font-family: 'Black Ops One', cursive;
+    color: var(--primary-color);
+}
+
 body {
     color: var(--dark-color);
 }

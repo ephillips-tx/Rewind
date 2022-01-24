@@ -13,6 +13,11 @@
 
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
+    <!-- Google Fonts for Black Ops One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
     <link href="css/site.css" rel="stylesheet">
     <link href="img/blk-favicon-32x32.png" rel="icon" type="image/png">
     <link href="css/prism.css" rel="stylesheet">
@@ -22,7 +27,7 @@
     <!-- NAV SECTION -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="#"><img src="img/wht-android-chrome-192x192.png" class="d-inline-block align-bottom" 
+            <a class="navbar-brand logoFont" href="index.html"><img src="img/wht-android-chrome-192x192.png" class="d-inline-block align-bottom" 
                 alt="mark" width="30" height="30"> REVERSAL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,20 +58,53 @@
      <!-- MAIN SECTION -->
      <main class="flex-shrink-0">
          <div class="container px-5 py-4 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for REVERSAL</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for <span class="logoFont">REVERSAL</span></h2>
             <div class="row g-5 py-5 row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World 
-                        function helloWorld(){
-                            alert("Hello World!");
+                        // get string from page
+                        // controller function
+                        function getUserString(){
+                            document.getElementById("alert").classList.add("invisible");
+                            let uString = document.getElementById("userString").value;
+                            let revString = reverseString(uString);
+                            displayString(revString);
+                        }
+
+                        // Reverse string
+                        // logic function
+                        function reverseString(uString){
+                            let revString = [];
+                            
+                            // reverse string using for loop
+                            for (let i = uString.length - 1; i >= 0; i--){
+                                revString += uString[i];
+                            }
+
+                            return revString;
+                        }
+
+                        // display reversed string
+                        // view function
+                        function displayString(revString){
+                            // write to page
+                            document.getElementById("msg").innerHTML=`Your string reversed is: ${revString}`;
+                            // turn on alert
+                            document.getElementById("alert").classList.remove("invisible");
                         }
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World!"</p>
+                    <p>
+                        This app was built with Model-View-Control architecture in mind. It takes a 
+                        string from the user using an HTML input tag. Then, it takes advantage of the array 
+                        data structure to find the bounds that will guide the loop. The app loops through 
+                        each of the values in the string and concatenates them to a new string. The final 
+                        result is then presented back to the user as a string which they will recognize as 
+                        reversed. Because, well, it is.
+                    </p>
+                    <h4><span class="logoFont text-muted">REVERSAL</span></h4>
+                    <p><span class="logoFont">REVERSAL</span> is an app that takes a user string and displays it back, but reversed!</p>
                 </div>
             </div>
          </div>
